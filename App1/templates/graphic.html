@@ -1,0 +1,122 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="imag/x-icon" href="{% static 'App1/images/logo.png' %}" sizes="100px">
+    <title>Content Creation</title>
+    <style>
+        /* Reset default margin and padding */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Apply styles to the body */
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #f4f4f4;
+}
+
+/* Style the main content */
+main {
+    display: flex; /* Use flexbox */
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+/* Style the section for content creation */
+.content-creation-section {
+    border: 1px solid #ddd;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+/* Style the content creation form */
+.content-form {
+    margin-top: 20px;
+}
+
+.content-form label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.content-form select,
+.content-form input[type="text"],
+.content-form textarea,
+.content-form input[type="file"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.content-form button[type="submit"] {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #333;
+    color: #fff;
+    text-decoration: none;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.content-form button[type="submit"]:hover {
+    background-color: #555;
+}
+
+/* Style buttons */
+.btn {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 10px 20px;
+    background-color: #333;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.btn:hover {
+    background-color: #555;
+}
+
+    </style>
+</head>
+<body>
+    
+    <main>
+        <section class="content-creation-section">
+            <h2>Create Task</h2><br>
+            <p>Engage your audience by producing high-quality Image, Logo, etc.... </p>
+            
+            <form class="content-form">
+                {% csrf_token %}
+                <label for="content-title">Content Title</label>
+                <input type="text" id="content-title" name="content-title" required>
+                
+                <label for="content-description">Content Description</label>
+                <textarea id="content-description" name="content-description" rows="4" required></textarea>
+                
+                <button type="submit" class="btn">Create Content</button>
+            </form>
+            
+            <a href="{% url 'post' %}" class="btn">Back to Home</a>
+        </section>
+    </main>
+    
+    <footer>
+        <p>&copy; 2023 Crowdsourcing Platform</p>
+    </footer>
+</body>
+</html>
