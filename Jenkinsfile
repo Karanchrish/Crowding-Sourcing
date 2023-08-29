@@ -1,11 +1,12 @@
-pipeline{
+pipeline {
     agent any
-    triggers{
+    triggers {
         githubPush()
     }
-    stages{
-        stage("Checkout"){
-            steps{
+  
+    stages {
+        stage("Checkout") {
+            steps {
                 checkout scm
             }
         }
